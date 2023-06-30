@@ -31,8 +31,7 @@ const onLogin = async (payload) => {
   
   console.log(userData.token);
   if (userData.token) {
-   document.cookie = `token=${"tata"};`;
- await Cookies.set("token", "baba", { expires: 0.1 });  
-   window.location.replace("../groups/groups.html");
+ Cookies.set("token", userData.token, { expires: 0.1 });  
+ window.location.replace("../groups/groups.html");
   }
   });
