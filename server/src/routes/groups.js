@@ -8,10 +8,9 @@ require("dotenv").config();
 
 router.get("/groups", authenticate, async (req, res) => {
     try {
-        const user = req.user;
-        console.log(user);
+        
       const [groups] = await mysqlPool.execute(
-        "SELECT * FROM `groups` left join accounts on groups.id = accounts.group_id where user_id =" + user.id, 
+        "SELECT * FROM `groups`", 
       );
      
       return res.json(groups);

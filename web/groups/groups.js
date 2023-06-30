@@ -22,7 +22,7 @@ const renderGroups = (groups, output) => {
 
 const getUserGroups = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/groups`, {
+      const response = await fetch(`http://localhost:8080/accounts`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
