@@ -44,3 +44,10 @@
     font-size: 0.75rem;
     color: red;
   }
+
+  .contacts-div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: #0F121A
+  }
