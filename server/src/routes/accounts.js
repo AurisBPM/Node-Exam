@@ -21,13 +21,17 @@ router.get("/accounts", authenticate, async (req, res) => {
     }
   });
 
-  router.post("/accounts", async (req, res) => {
+  router.post("/accounts", authenticate,  async (req, res) => {
     const payload = req.body;
+    const user = req.user;
+
+    console.log("user");
     console.log(payload);
+    console.log(user);
     try {
       const [response] = await mysqlPool.execute(
         "INSERT INTO accounts (user_id, group_id) VALUES (?, ?)",
-        [payload.user_id, payload.group_id],
+        [user.id, payload.group_id],
       );
       res.status(200).json(response);
     } catch (err) {

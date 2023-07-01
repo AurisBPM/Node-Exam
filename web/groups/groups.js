@@ -1,4 +1,6 @@
 const token = Cookies.get("token");
+console.log(token);
+const form = document.querySelector('form');
 
 if (!token) {
   window.location.replace("../login/login.html");
@@ -42,3 +44,41 @@ const getUserGroups = async () => {
     }
   
   });
+
+
+
+  const registerAccount = async (payload) => {
+        try {
+            const token = Cookies.get("token");
+            console.log(token);
+          const response = await fetch(`http://localhost:8080/accounts`, {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+          })
+         
+          return await response.json();
+        } catch (err) {
+         return console.log(err);
+        }
+  };
+
+if (form){
+    form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const groupId = event.target.group.value;
+
+    console.log(groupId);
+
+    const payload = {
+        group_id: groupId
+      };
+
+      const request = await registerAccount(payload);
+      console.log(request);
+    });
+};
