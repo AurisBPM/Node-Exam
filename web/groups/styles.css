@@ -21,3 +21,46 @@
     gap: 1rem;
     text-align: center;
   }
+
+  .logo-container {
+
+    height: 3rem;
+    width: 3rem;
+     background-image: url("../google-logo.png");
+     background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center;
+    border-radius: 50%;
+     border: 1px solid lightgrey;
+   }
+ 
+   .split-bill-flex {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0.5rem;
+     margin-bottom: 2rem;
+   }
+
+   main {
+    padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+      }
+
+      button {
+        font-size: 0.75rem;
+        border: 1px solid black;
+        padding: 0.25rem;
+        background-color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }

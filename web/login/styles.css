@@ -6,7 +6,7 @@
   }
   
   main {
-    min-height: 100vh;
+padding-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,8 +25,12 @@
     font-size: 0.75rem;
   }
 
+  div {
+    font-size: 0.75rem;
+  }
+
   input {
-    width: 12rem;
+  
     padding: 0.25rem;
     border: 1px solid lightgray;
   }
@@ -51,3 +55,24 @@
     gap: 1rem;
     background: #0F121A
   }
+
+  .logo-container {
+
+   height: 3rem;
+   width: 3rem;
+    background-image: url("../google-logo.png");
+    background-repeat: no-repeat; /* Do not repeat the image */
+   background-position: center;
+   border-radius: 50%;
+    border: 1px solid lightgrey;
+  }
+
+  .split-bill-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+ 
