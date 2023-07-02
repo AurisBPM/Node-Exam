@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <main>
+    <div class="split-bill-flex">
+        <div class="logo-container">
+        </div>
+        <h2>Split Bill</h2>
+    </div>
+    <section id="bills">
+        <h3>Group's Bills:</h3>
+        <table id="bills-table">
+            <thead>
+                <tr>
+                    <th width="50px">ID</th>
+                    <th width="150px">Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="bills-tbody">
+
+            </tbody>
+        </table>
+    </section>
+    <section class="form-section">
+        <h2>Add Bill</h2>
+        <form>
+            
+            <label for="amount">Amount:</label>
+            <input type="text" required id="amount">
+            <label for="description">Description:</label>
+            <input type="text" required id="description">
+            <button type="submit">Add</button>
+        </form>
+    </section>
+   
+
+   
+   </main>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="bills.js"></script>
+</body>
+</html>

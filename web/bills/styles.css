@@ -5,28 +5,6 @@
     font-family: sans-serif;
   }
 
-  #my-groups{
-    padding: 2rem;
-    gap: 2rem;
-     display:  grid;
-     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
-
-  .group {
-    padding: 2rem;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  .group:hover {
-    cursor: pointer;
-    border: 1px solid grey;
-  }
-
   .logo-container {
 
     height: 3rem;
@@ -70,8 +48,33 @@
         cursor: pointer;
       }
 
-      #info {
+      .form-section {
         margin-top: 2rem;
-        font-size: 0.75rem;
-        color: red;
       }
+
+      table {
+        margin-top: 2rem;
+        border-collapse: collapse;
+      }
+
+      table th {
+        padding: 0.5rem;
+        background-color: white;
+        text-align: left;
+      }
+
+      #bills {
+        text-align: center;
+      }
+
+      td {
+        text-align: left;
+        padding: 0.5rem;
+      }
+
+      tr:nth-child(odd) {
+        background: rgb(234, 232, 232);
+        
+    }
+
+      

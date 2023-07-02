@@ -1,6 +1,8 @@
 const token = Cookies.get("token");
 console.log(token);
 const form = document.querySelector('form');
+const info = document.getElementById('info');
+
 
 if (!token) {
   window.location.replace("../login/login.html");
@@ -15,9 +17,14 @@ const renderGroups = (groups, output) => {
       const content = document.createElement("p");
   
       container.classList.add("group");
-      heading.textContent = `ID: ${group.id}`;
+      heading.textContent = `ID: ${group.group_id}`;
       content.textContent = group.name;
       container.append(heading,content);
+      container.addEventListener('click', () => {
+       
+        window.location.replace("../bills/bills.html?group=" + group.group_id);
+        
+      });
       output.append(container);
     });
   };
@@ -35,14 +42,24 @@ const getUserGroups = async () => {
     }
   };
 
-  document.addEventListener("DOMContentLoaded", async () => {
+const pageLoad = async () => {
+    myGroups.innerHTML = "";
     const userGroups = await getUserGroups();
-    console.log(userGroups);
-    renderGroups(userGroups, myGroups);
+    
     if (userGroups.error) {
       window.location.replace("../login/login.html");
     }
+    if ( userGroups.length != 0){
+        document.getElementById("groupsInfo").textContent = "Select Your Group"
+        renderGroups(userGroups, myGroups);
+    } else {
+        document.getElementById("groupsInfo").textContent = "You do not have any groups added"
+    }
+}
+
+  document.addEventListener("DOMContentLoaded", async () => {
   
+    pageLoad();
   });
 
 
@@ -69,6 +86,7 @@ const getUserGroups = async () => {
 if (form){
     form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    info.textContent = '';
 
     const groupId = event.target.group.value;
 
@@ -79,6 +97,14 @@ if (form){
       };
 
       const request = await registerAccount(payload);
-      console.log(request);
+      if(request.error){
+        if(request.error == "You are already in this group"){
+          info.textContent = request.error;
+          return;
+        }
+        info.textContent = 'Something went wrong';
+        return;
+      }
+      pageLoad();
     });
 };

@@ -29,13 +29,28 @@ router.get("/accounts", authenticate, async (req, res) => {
     console.log(payload);
     console.log(user);
     try {
+
+       try {
+
+        const [isAlready] = await mysqlPool.execute(
+            `SELECT * FROM accounts WHERE user_id = ${user.id} and group_id = ${payload.group_id}`
+          );
+        if (isAlready.length != 0){
+            return res.status(400).send({ error: "You are already in this group" });
+        }
+
+       } catch (err) {
+return res.status(500).end();      
+       }
+
+
       const [response] = await mysqlPool.execute(
         "INSERT INTO accounts (user_id, group_id) VALUES (?, ?)",
         [user.id, payload.group_id],
       );
       res.status(200).json(response);
     } catch (err) {
-      console.log(err);
+      return  res.status(500).end();
     }
   });
 

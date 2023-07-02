@@ -34,8 +34,14 @@ if (form){
 
     if ( password == repeatPassword ){
        const userData = await registerUser(payload);
+       
+if ( userData.error == "Duplicate entry"){
+ info.textContent = 'Email already exists';
+ return;
+}
 if (userData.token) {
-  Cookies.set("token", userData.token, { expires: 0.1 });   window.location.replace("../groups/groups.html");
+  Cookies.set("token", userData.token, { expires: 0.1 });
+   window.location.replace("../groups/groups.html");
 }
     } else {
        info.textContent = 'The password did not match';

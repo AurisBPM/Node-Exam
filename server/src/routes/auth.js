@@ -45,6 +45,9 @@ router.post('/register', async (req, res) => {
     return res.status(201).json({ token });
   } catch (err) {
     console.log(err);
+    if ( err.code = "ER_DUP_ENTRY"){
+      return res.status(400).json({error: "Duplicate entry"});
+    }
     return res.status(500).end();
   }
 });

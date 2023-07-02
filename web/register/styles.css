@@ -47,6 +47,8 @@
   #info {
     font-size: 0.75rem;
     color: red;
+    height: 0.75rem;
+    text-align: center;
   }
 
   .logo-container {

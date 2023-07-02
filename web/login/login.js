@@ -13,7 +13,7 @@ const onLogin = async (payload) => {
      
       return await response.json();
     } catch (err) {
-     return console.log(err);
+     return err;
     }
   };
   
@@ -25,13 +25,21 @@ const onLogin = async (payload) => {
       password: event.target.password.value,
   };
   
-  console.log(payload);
-  
   const userData = await onLogin(payload);
+
+  if(userData.error){
+    if(userData.error == "Email or password did not match"){
+      info.textContent = userData.error;
+      return;
+    }
+    info.textContent = 'Something went wrong';
+    return;
+  }
   
-  console.log(userData.token);
+  console.log(userData);
   if (userData.token) {
  Cookies.set("token", userData.token, { expires: 0.1 });  
  window.location.replace("../groups/groups.html");
+
   }
   });
