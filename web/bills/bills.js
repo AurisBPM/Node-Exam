@@ -49,10 +49,11 @@ const renderBills = (bills, output) => {
           window.location.replace("../login/login.html");
         }
         if ( groupBills.length != 0){
+            document.getElementById("billsInfo").textContent = "Group's Bills:";
             renderBills(groupBills, billsTbody);
             billsTable.style.display = "block";
         } else {
-            // indicate that there are no bills
+            document.getElementById("billsInfo").textContent = "There are no bills in this group";
         }
     }
 
