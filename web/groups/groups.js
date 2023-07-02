@@ -19,6 +19,7 @@ const renderGroups = (groups, output) => {
       container.classList.add("group");
       heading.textContent = `ID: ${group.group_id}`;
       content.textContent = group.name;
+      content.classList.add("group-name-div");
       container.append(heading,content);
       container.addEventListener('click', () => {
        

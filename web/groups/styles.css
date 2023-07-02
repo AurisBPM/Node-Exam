@@ -12,6 +12,18 @@
      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
+  input {
+    width: 20rem;
+    padding: 0.5rem;
+    border: 1px solid lightgray;
+    margin-bottom: 0.5rem;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: 0.75rem;
+  }
+
   .group {
     padding: 2rem;
     border-radius: 5px;
@@ -62,16 +74,22 @@
       }
 
       button {
+        width: 3rem;
         font-size: 0.75rem;
         border: 1px solid black;
-        padding: 0.25rem;
+        padding: 0.5rem;
         background-color: white;
         font-weight: bold;
         cursor: pointer;
       }
 
       #info {
-        margin-top: 2rem;
+        margin-top: 1rem;
         font-size: 0.75rem;
         color: red;
+      }
+
+      .group-name-div {
+        color: grey;
+        font-size: 11px;
       }
