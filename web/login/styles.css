@@ -30,9 +30,10 @@ padding-top: 50px;
   }
 
   input {
-  
-    padding: 0.25rem;
+    width: 20rem;
+    padding: 0.5rem;
     border: 1px solid lightgray;
+    margin-bottom: 1rem;
   }
   
   button {
@@ -77,4 +78,11 @@ padding-top: 50px;
     margin-bottom: 2rem;
   }
 
+  .form-section {
+    margin-bottom: 1rem;
+   }
+
+   a {
+    text-decoration: none;
+   }
  
