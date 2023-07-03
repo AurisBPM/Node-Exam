@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.logo-container {
+  height: 3rem;
+  width: 3rem;
+  background-image: url('../google-logo.png');
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+}
+
+.split-bill-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+main {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+button {
+  width: 3rem;
+  font-size: 0.75rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-section {
+  margin-top: 2rem;
+}
+
+table {
+  font-size: 0.75rem;
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+table th {
+  padding: 0.5rem;
+  background-color: white;
+  text-align: left;
+}
+
+#bills {
+  text-align: center;
+}
+
+td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+tr:nth-child(odd) {
+  background: rgb(234, 232, 232);
+}
+
+input {
+  width: 20rem;
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+a {
+    text-align: center;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
