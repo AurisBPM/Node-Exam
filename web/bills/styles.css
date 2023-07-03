@@ -88,3 +88,10 @@ label {
   font-weight: bold;
   font-size: 0.75rem;
 }
+
+a {
+    text-align: center;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
