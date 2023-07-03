@@ -1,19 +1,14 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   authenticate: (req, res, next) => {
     try {
-      console.log(req.headers.authorization);
-      const token = req.headers.authorization?.split(" ")[1];
-      console.log("token");
-      console.log(token);
+      const token = req.headers.authorization?.split(' ')[1];
       const user = jwt.verify(token, process.env.JWT_SECRET);
       req.user = user;
       next();
     } catch (error) {
-      console.error(error);
-
-      res.status(401).send({ error: "Token is bad" });
+      res.status(401).send({ error: 'Token is bad' });
     }
   },
 };

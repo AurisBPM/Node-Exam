@@ -2,11 +2,12 @@ const express = require('express');
 const mysql = require('mysql2');
 const joi = require('joi');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const DB_CONFIG = require('../config/db-config');
-const jwt = require("jsonwebtoken");
+
 const router = express.Router();
 const mysqlPool = mysql.createPool(DB_CONFIG).promise();
-require("dotenv").config();
+require('dotenv').config();
 
 const userSchema = joi.object({
   full_name: joi.string().required(),
@@ -26,7 +27,6 @@ router.post('/register', async (req, res) => {
   try {
     payload = await userSchema.validateAsync(payload);
   } catch (err) {
-    console.log(err);
     return res.status(400).send({ error: 'All fields are required' });
   }
 
@@ -41,26 +41,22 @@ router.post('/register', async (req, res) => {
       },
       process.env.JWT_SECRET,
     );
-    console.log(token);
     return res.status(201).json({ token });
   } catch (err) {
-    console.log(err);
-    if ( err.code = "ER_DUP_ENTRY"){
-      return res.status(400).json({error: "Duplicate entry"});
+    if (err.code === 'ER_DUP_ENTRY') {
+      return res.status(400).json({ error: 'Duplicate entry' });
     }
     return res.status(500).end();
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post('/login', async (req, res) => {
   let payload = req.body;
 
   try {
     payload = await loginSchema.validateAsync(payload);
   } catch (error) {
-    console.error(error);
-
-    return res.status(400).send({ error: "All fields are required" });
+    return res.status(400).send({ error: 'All fields are required' });
   }
 
   try {
@@ -73,7 +69,7 @@ router.post("/login", async (req, res) => {
     );
 
     if (!data.length) {
-      return res.status(400).send({ error: "Email or password did not match" });
+      return res.status(400).send({ error: 'Email or password did not match' });
     }
 
     const isPasswordMatching = await bcrypt.compare(
@@ -92,9 +88,8 @@ router.post("/login", async (req, res) => {
       return res.status(200).send({ token });
     }
 
-    return res.status(400).send({ error: "Email or password did not match" });
+    return res.status(400).send({ error: 'Email or password did not match' });
   } catch (error) {
-    console.error(error);
     return res.status(500).end();
   }
 });

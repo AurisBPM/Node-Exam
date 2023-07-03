@@ -20,7 +20,7 @@ const renderBills = (bills, output) => {
     
       cellId.textContent = bill.id;
       cellDesc.textContent = bill.description;
-      cellAmount.textContent = bill.amount;
+      cellAmount.textContent = "$" + bill.amount;
 
       output.append(row);
     
